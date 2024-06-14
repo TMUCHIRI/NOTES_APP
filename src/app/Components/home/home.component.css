@@ -1,0 +1,43 @@
+/* src/app/landing-page/landing-page.component.css */
+.landing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #000000;
+    color:#F0EDCF ;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 60%;
+    height: 40%;
+    background: #1a1a1b;
+    border-radius: 0 15px 0 15px;
+    box-shadow: 0 0 15px 10px #40A2D8;
+  }
+  
+  button {
+    background-color: #0B60B0;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0 0 15px 5px #40A2D8;
+    width: 40%;
+    height: 20%;
+  }
+  
+  button:hover {
+    background-color: #40A2D8;
+    color: #F0EDCF;
+  }
+  

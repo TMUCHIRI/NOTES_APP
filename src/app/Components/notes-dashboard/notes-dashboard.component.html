@@ -1,0 +1,50 @@
+<div class="body">
+<div class="dashboard-container">
+    <h2>Note Making Dashboard</h2>
+    
+    <form >
+      <div class="input-group">
+        <input type="text" ngModel placeholder="Note Title"  required>
+      </div>
+      <div class="input-group">
+        <textarea ngModel placeholder="Description"  required></textarea>
+      </div>
+      <div class="input-group">
+        <input type="date" ngModel placeholder="Creation Date"  required>
+      </div>
+      <button type="submit">Add Note</button>
+    </form>
+  
+    <div class="notes-container">
+      <div *ngFor="let note of notes" class="note-item">
+        <p><strong></strong></p>
+        <p></p>
+        <p></p>
+        <button >Update</button>
+        <button >Delete</button>
+      </div>
+    </div>
+  
+    <div class="update">
+    <div class="modal" >
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Update Note</h2>
+        <form id="updateForm">
+          <div class="input-group">
+            <input type="text"  placeholder="Note Title"  required>
+          </div>
+          <div class="input-group">
+            <textarea  placeholder="Description"  required></textarea>
+          </div>
+          <div class="input-group">
+            <input type="date"  placeholder="Creation Date" required>
+          </div>
+          <button type="submit">Update Note</button>
+        </form>
+      </div>
+    </div>
+</div>
+  </div>
+</div>
+  
