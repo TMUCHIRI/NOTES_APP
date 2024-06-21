@@ -1,50 +1,49 @@
 <div class="body">
-<div class="dashboard-container">
+  <div class="dashboard-container">
     <h2>Note Making Dashboard</h2>
     
-    <form >
+    <form (ngSubmit)="addNote()">
       <div class="input-group">
-        <input type="text" ngModel placeholder="Note Title"  required>
+        <input type="text" [(ngModel)]="newNote.title" name="title" placeholder="Note Title" required>
       </div>
       <div class="input-group">
-        <textarea ngModel placeholder="Description"  required></textarea>
+        <textarea [(ngModel)]="newNote.content" name="content" placeholder="Description" required></textarea>
       </div>
       <div class="input-group">
-        <input type="date" ngModel placeholder="Creation Date"  required>
+        <input type="date" [(ngModel)]="newNote.createdAt" name="createdAt" placeholder="Creation Date" required>
       </div>
       <button type="submit">Add Note</button>
     </form>
-  
+
     <div class="notes-container">
       <div *ngFor="let note of notes" class="note-item">
-        <p><strong></strong></p>
-        <p></p>
-        <p></p>
-        <button >Update</button>
-        <button >Delete</button>
+        <p><strong>{{ note.title }}</strong></p>
+        <p>{{ note.content }}</p>
+        <p>{{ note.createdAt }}</p>
+        <button class="updateBtn" (click)="selectNoteForUpdate(note)">Update</button>
+        <button class="deleteBtn" (click)="deleteNote(note.id)">Delete</button>
       </div>
     </div>
   
-    <div class="update">
-    <div class="modal" >
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Update Note</h2>
-        <form id="updateForm">
-          <div class="input-group">
-            <input type="text"  placeholder="Note Title"  required>
-          </div>
-          <div class="input-group">
-            <textarea  placeholder="Description"  required></textarea>
-          </div>
-          <div class="input-group">
-            <input type="date"  placeholder="Creation Date" required>
-          </div>
-          <button type="submit">Update Note</button>
-        </form>
+    <div *ngIf="selectedNote" class="update">
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close" (click)="selectedNote = null">&times;</span>
+          <h2>Update Note</h2>
+          <form (ngSubmit)="updateNote()">
+            <div class="input-group">
+              <input type="text" [(ngModel)]="selectedNote.title" name="title" placeholder="Note Title" required>
+            </div>
+            <div class="input-group">
+              <textarea [(ngModel)]="selectedNote.content" name="content" placeholder="Description" required></textarea>
+            </div>
+            <div class="input-group">
+              <input type="date" [(ngModel)]="selectedNote.createdAt" name="createdAt" placeholder="Creation Date" required>
+            </div>
+            <button type="submit">Update Note</button>
+          </form>
+        </div>
       </div>
     </div>
-</div>
   </div>
 </div>
-  
